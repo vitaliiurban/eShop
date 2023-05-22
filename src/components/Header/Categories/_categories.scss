@@ -1,0 +1,27 @@
+@use "../../../styles/variables";
+
+.categories-menu {
+  @include variables.container(flex, center, center);
+  gap: 10px;
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  background-color: variables.$accent-color;
+}
+
+.category-menu {
+  @include variables.container(flex, center, center);
+  gap: 5px;
+  background-color: variables.$background-color;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: variables.$text-color;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.7s;
+  &:hover {
+    background-color: lighten(variables.$accent-color, 15%);
+    box-shadow: 0 0 5px 2px variables.$accent-color;
+  }
+}

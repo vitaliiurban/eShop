@@ -1,0 +1,181 @@
+{
+  "categories": [
+    "phones",
+    "laptops",
+    "headphones",
+    "microphones",
+    "tablets",
+    "keyboards",
+    "mouses"
+  ],
+  "products": [
+    {
+      "id": 1,
+      "title": "iPhone 14 Pro Max 128GB",
+      "price": 1100,
+      "description": "iPhone 14 Pro Max. Capture incredible detail with a 48MP Main camera. Experience iPhone in a whole new way with Dynamic Island and Always-On display. And get peace of mind with groundbreaking safety features. Pair iPhone 14 Pro Max with Verizon, the network America relies on. 5G Ultra Wideband is now in more and more places, so more and more people can do amazing things with Verizon and iPhone 14 Pro Max.",
+      "rating": 4.5,
+      "category": "phones",
+      "brand": "Apple",
+      "images": [
+        "/images/products/phones/iphone/iPhone14ProMax128gb_1.webp",
+        "/images/products/phones/iphone/iPhone14ProMax128gb_2.webp",
+        "/images/products/phones/iphone/iPhone14ProMax128gb_3.webp"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "iPhone 13 128GB",
+      "price": 700,
+      "description": "iPhone 13. The most advanced dual-camera system ever on iPhone. Lightning-fast A15 Bionic chip. A big leap in battery life. Durable design. Superfast 5G.1 And a brighter Super Retina XDR display. Pair iPhone 13 with Verizon, the network America relies on. 5G Ultra Wideband is now in more and more places, so more and more people can do amazing things with Verizon and iPhone 13.",
+      "rating": 4.3,
+      "category": "phones",
+      "brand": "Apple",
+      "images": [
+        "/images/products/phones/iphone/iPhone13128gb_1.webp",
+        "/images/products/phones/iphone/iPhone13128gb_2.webp",
+        "/images/products/phones/iphone/iPhone13128gb_3.webp"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "iPhone 12 64GB",
+      "price": 600,
+      "description": "Meet the new iPhone 12. Superfast 5G.¹,² A14 Bionic, the fastest chip in a smartphone. An edge-to-edge OLED display. Pro camera system for next-level low-light photography. It's a beautiful leap forward. Pair iPhone 12 with Verizon, the network America relies on. 5G Ultra Wideband is now in more and more places, so more and more people can do amazing things with Verizon and iPhone 12.",
+      "rating": 4.0,
+      "category": "phones",
+      "brand": "Apple",
+      "images": [
+        "/images/products/phones/iphone/iPhone1264gb_1.webp",
+        "/images/products/phones/iphone/iPhone1264gb_2.webp",
+        "/images/products/phones/iphone/iPhone1264gb_3.webp"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "iPhone 14 Plus 128GB",
+      "price": 900,
+      "description": "iPhone 14 Plus. Think big with a larger 6.7-inch display1 and the longest battery life of any iPhone ever.2 Capture stunning photos in low light and bright light with the dual-camera system. Get peace of mind with groundbreaking safety features. Pair iPhone 14 Plus with Verizon, the network America relies on. 5G Ultra Wideband is now in more and more places, so more and more people can do amazing things with Verizon and iPhone 14 Plus.",
+      "rating": 4.5,
+      "category": "phones",
+      "brand": "Apple",
+      "images": [
+        "/images/products/phones/iphone/iPhone14Plus128gb_1.webp",
+        "/images/products/phones/iphone/iPhone14Plus128gb_2.webp",
+        "/images/products/phones/iphone/iPhone14Plus128gb_3.webp"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Samsung Galaxy S23+ 256GB",
+      "price": 900,
+      "description": "Meet the Samsung Galaxy S23+, the phone that takes you out of the everyday and into the epic. Life doesn’t wait for the perfect lighting, but with Nightography, you are always ready to seize the moment and snap photos like a pro. See your content clearly no matter the time of day on a display with a refresh rate up to 120Hz and adaptive Vision Booster. Capture and create in rich detail, and then use Quick Share1 to share across devices without losing quality. And now you can pair it with Verizon’s ultra-fast 5G Ultra Wideband network– do more of what you love with S23+ and the network America relies on.",
+      "rating": 4.6,
+      "category": "phones",
+      "brand": "Samsung",
+      "images": [
+        "/images/products/phones/samsung/SamsungGalaxyS23+256gb_1.webp",
+        "/images/products/phones/samsung/SamsungGalaxyS23+256gb_2.webp",
+        "/images/products/phones/samsung/SamsungGalaxyS23+256gb_3.webp"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Samsung Galaxy S23 Ultra 256GB",
+      "price": 1200,
+      "description": "The Samsung Galaxy S Series has a legacy of pushing the boundaries of what a smartphone can do, and with Galaxy S23 Ultra, they’re raising that bar again. Galaxy S23 Ultra features the highest camera resolution on a phone, and with stunning Night Mode powered by Nightography, you can take your best shots no matter the lighting. Plus, with the fastest Snapdragon processor yet, you can juggle high-intensity games and toggle between multiple apps or video calls with ease. Working on the go? Write, sketch, edit, create and share from anywhere with a built-in S Pen. Do all this and more on an incredibly large display built for gaming, streaming, creating and doing– and now you can pair it with Verizon’s ultra-fast 5G Ultra Wideband network. Do more of what you love with S23 Ultra and the network America relies on.",
+      "rating": 4.8,
+      "category": "phones",
+      "brand": "Samsung",
+      "images": [
+        "/images/products/phones/samsung/SamsungGalaxyS23Ultra256gb_1.webp",
+        "/images/products/phones/samsung/SamsungGalaxyS23Ultra256gb_2.webp",
+        "/images/products/phones/samsung/SamsungGalaxyS23Ultra256gb_3.webp"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Samsung Galaxy S22 128GB",
+      "price": 700,
+      "description": "The Samsung Galaxy S Series has a legacy of pushing the boundaries of what a smartphone can do, and with Galaxy S23 Ultra, they’re raising that bar again. Galaxy S23 Ultra features the highest camera resolution on a phone, and with stunning Night Mode powered by Nightography, you can take your best shots no matter the lighting. Plus, with the fastest Snapdragon processor yet, you can juggle high-intensity games and toggle between multiple apps or video calls with ease. Working on the go? Write, sketch, edit, create and share from anywhere with a built-in S Pen. Do all this and more on an incredibly large display built for gaming, streaming, creating and doing– and now you can pair it with Verizon’s ultra-fast 5G Ultra Wideband network. Do more of what you love with S23 Ultra and the network America relies on.",
+      "rating": 4.0,
+      "category": "phones",
+      "brand": "Samsung",
+      "images": [
+        "/images/products/phones/samsung/SamsungGalaxyS22128gb_1.webp",
+        "/images/products/phones/samsung/SamsungGalaxyS22128gb_2.webp",
+        "/images/products/phones/samsung/SamsungGalaxyS22128gb_3.webp"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Samsung Galaxy Z Fold4 256GB",
+      "price": 1800,
+      "description": "Meet the Samsung Galaxy Z Fold4, the smartphone made for modern productivity and entertainment. Free up your hands with Flex Mode on Galaxy Z Fold4. It stands on its own so you can take notes during a conference call or follow along with instructional videos in real time. With this 2-in-1 phone and tablet, you can communicate hands-free using the 6.2 cover display, and then unfold to the large 7.6 main display when it's time to work. Multitask with three windows at once, and edit documents with the S Pen (sold separately)1. When it's time for a break, enjoy your favorite shows and games with Super Smooth graphics, uninterrupted by a near-invisible Under Display Camera. Galaxy Z Fold4 features an enhanced 50MP main camera with 30X Space Zoom for pro-quality photos whether you're up close or far away. Plus, keep listening to what you love with your connected Galaxy Buds and stay up to date with your Galaxy Watch working together with the Galaxy Z Fold42. Unfold your world and experience next-level productivity with the Samsung Galaxy Z Fold4, paired with Verizon's 5G3 network experience.",
+      "rating": 4.6,
+      "category": "phones",
+      "brand": "Samsung",
+      "images": [
+        "/images/products/phones/samsung/SamsungGalaxyZFold4256gb_1.webp",
+        "/images/products/phones/samsung/SamsungGalaxyZFold4256gb_2.webp",
+        "/images/products/phones/samsung/SamsungGalaxyZFold4256gb_3.webp"
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Google Pixel 7 128GB",
+      "price": 700,
+      "description": "Meet Google Pixel 7. Simply powerful, super helpful. Powered by Google Tensor G2, Pixel 7 is fast, and secure, with amazing battery life and the advanced Pixel camera. And, you can pair it with Verizon's 5G Ultra Wideband1 network for ultra-fast connectivity. Bring together your Pixel phone, Pixel Buds Pro, and the Google Pixel Watch for personalized help throughout your day. Pair Google Pixel 7 with Verizon, the network America relies on. 5G Ultra Wideband is now in more and more places, so more and more people can do amazing things with Verizon and Google Pixel 7.",
+      "rating": 4.1,
+      "category": "phones",
+      "brand": "Google",
+      "images": [
+        "/images/products/phones/google/GooglePixel7128gb_1.webp",
+        "/images/products/phones/google/GooglePixel7128gb_2.webp",
+        "/images/products/phones/google/GooglePixel7128gb_3.webp"
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Google Pixel 7 Pro 256GB",
+      "price": 1000,
+      "description": "Meet Pixel 7 Pro, the all-pro Google phone. Powered by Google Tensor G2, it's super fast and secure, with an immersive display, amazing battery life, and the best Pixel camera yet. And, experience ultra-fast connectivity when you pair it with Verizon's 5G Ultra Wideband1 network. Bring together your Pixel phone, Pixel Buds Pro, and the Google Pixel Watch for personalized help throughout your day. Pair Google Pixel 7 Pro with Verizon, the network America relies on. 5G Ultra Wideband is now in more and more places, so more and more people can do amazing things with Verizon and Google Pixel 7 Pro.",
+      "rating": 4.1,
+      "category": "phones",
+      "brand": "Google",
+      "images": [
+        "/images/products/phones/google/GooglePixel7Pro256gb_1.webp",
+        "/images/products/phones/google/GooglePixel7Pro256gb_2.webp",
+        "/images/products/phones/google/GooglePixel7Pro256gb_3.webp"
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Google Pixel 6a 256GB",
+      "price": 400,
+      "description": "Smart, powerful, helpful. And less than you think. Meet the Google Pixel 6a, the more affordable, super fast, and secure Google phone1. It's powered by Google Tensor for fast performance. And, with an Adaptive Battery that can last over 24 hours2, top-rated security, and water resistance3, it's designed around you and your busy lifestyle, inside and out. Pair Google Pixel 6a with Verizon, the network America relies on. 5G Ultra Wideband is now in more and more places, so more and more people can do amazing things with Verizon and Google Pixel 6a.",
+      "rating": 3.8,
+      "category": "phones",
+      "brand": "Google",
+      "images": [
+        "/images/products/phones/google/GooglePixel6a128gb_1.webp",
+        "/images/products/phones/google/GooglePixel6a128gb_2.webp",
+        "/images/products/phones/google/GooglePixel6a128gb_3.webp"
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Google Pixel 6 Pro 256GB",
+      "price": 1000,
+      "description": "Introducing Pixel 6 Pro, the completely redesigned, fully loaded Google phone, making it the smartest and fastest Pixel yet. 1 With Google's first custom-built chip designed by Google and made for Pixel, Google Tensor takes performance to a whole new level. The Pixel 6 Pro features the most advanced camera ever, able to capture brilliant color and vivid detail with Pixel's best-in-class computational photography and new pro-level lenses. Redesigned for more powerful performance, the Pixel 6 Pro now comes with faster apps and pages, an all-day battery and proactive help, delivering what you need when you need it. 2 And with the most hardware security layers in any phone3, the Pixel 6 Pro keeps your personal data safe with the new Google Tensor processor and next-gen Titan M2 security. Now with the coverage of 5G Nationwide and the unprecedented performance of 5G Ultra Wideband. 4 Pair Google Pixel 6 Pro with Verizon, the network America relies on. 5G Ultra Wideband is now in more and more places, so more and more people can do amazing things with Verizon and Google Pixel 6 Pro.",
+      "rating": 3.9,
+      "category": "phones",
+      "brand": "Google",
+      "images": [
+        "/images/products/phones/google/GooglePixel6Pro256gb_1.webp",
+        "/images/products/phones/google/GooglePixel6Pro256gb_2.webp",
+        "/images/products/phones/google/GooglePixel6Pro256gb_3.webp"
+      ]
+    }
+  ]
+}

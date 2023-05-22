@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap");
+
+$font-stack: "Inter", sans-serif;
+$background-color: rgb(228, 228, 228);
+$accent-color: #d4d4d4;
+$text-color: #333;
+
+@mixin container(
+  $display: flex,
+  $justify-content: center,
+  $align-items: center
+) {
+  display: $display;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}

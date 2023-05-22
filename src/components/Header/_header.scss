@@ -1,0 +1,14 @@
+@use "../../styles/variables";
+
+header {
+  background-color: variables.$accent-color;
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-menu {
+  @include variables.container(flex, space-between, center);
+  padding: 0 100px;
+  height: 100px;
+}
