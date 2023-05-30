@@ -1,4 +1,5 @@
 import { useState, Dispatch, SetStateAction } from "react";
+import { Link } from "react-router-dom";
 
 import Navbar from "./Navbar/Navbar";
 import Categories from "./Categories/Categories";
@@ -25,7 +26,7 @@ function Header(props: HeaderProps) {
         />
         <input type="text" />
         <div>Account</div>
-        <div>Cart</div>
+        <Link to={`/cart`}>Cart</Link>
       </div>
       {toggleMenu && (
         <Categories

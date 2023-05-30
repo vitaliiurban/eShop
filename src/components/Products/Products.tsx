@@ -17,7 +17,6 @@ function Products(props: ProductsProps) {
 
   const { data, error, isLoading, isFetching, isSuccess } =
     useGetProductsQuery();
-  console.log(data);
   const products = data as ProductModule[] | undefined;
   const filteredProducts = products?.filter(
     (product) => product.category === props.toggleCategory
@@ -71,9 +70,9 @@ function Products(props: ProductsProps) {
           ?.slice(pagesVisited, pagesVisited + productsPerPage)
           .map(renderProduct);
 
-  isLoading && console.log(`...Loading Products`);
-  isFetching && console.log(`...Fetching Products`);
-  error && console.log(`Something went wrong during fetching "Products"`);
+  // isLoading && console.log(`...Loading Products`);
+  // isFetching && console.log(`...Fetching Products`);
+  // error && console.log(`Something went wrong during fetching "Products"`);
 
   useEffect(() => {
     localStorage.setItem("toggleCategory", props.toggleCategory);

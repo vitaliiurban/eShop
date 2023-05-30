@@ -5,6 +5,7 @@ import Header from "../Header/Header";
 import Home from "../Home/Home";
 import Products from "../Products/Products";
 import Product from "../Product/Product";
+import Cart from "../Cart/Cart";
 
 function App() {
   const [toggleCategory, setToggleCategory] = useState<string>(() => {
@@ -13,13 +14,22 @@ function App() {
   const [toggleProduct, setToggleProduct] = useState<ProductModule | undefined>(
     () => {
       const storedProduct = localStorage.getItem("toggleProduct");
-      return storedProduct ? JSON.parse(storedProduct) : undefined;
+      if (storedProduct) {
+        return JSON.parse(storedProduct);
+      }
+      return undefined;
     }
   );
 
   const handleClick = (category: CategoriesModule): void => {
     setToggleCategory(category.toString());
   };
+
+  useEffect(() => {
+    if (toggleProduct) {
+      localStorage.setItem("toggleProduct", JSON.stringify(toggleProduct));
+    }
+  }, [toggleProduct]);
 
   return (
     <BrowserRouter>
@@ -46,7 +56,7 @@ function App() {
           )}`}
           element={toggleProduct && <Product toggleProduct={toggleProduct} />}
         />
-        <Route path={`/cart`}></Route>
+        <Route path={`/cart`} element={<Cart />}></Route>
       </Routes>
     </BrowserRouter>
   );

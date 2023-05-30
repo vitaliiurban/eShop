@@ -21,7 +21,8 @@
         "/images/products/phones/iphone/iPhone14ProMax128gb_1.webp",
         "/images/products/phones/iphone/iPhone14ProMax128gb_2.webp",
         "/images/products/phones/iphone/iPhone14ProMax128gb_3.webp"
-      ]
+      ],
+      "cart": false
     },
     {
       "id": 2,
@@ -35,21 +36,23 @@
         "/images/products/phones/iphone/iPhone13128gb_1.webp",
         "/images/products/phones/iphone/iPhone13128gb_2.webp",
         "/images/products/phones/iphone/iPhone13128gb_3.webp"
-      ]
+      ],
+      "cart": false
     },
     {
       "id": 3,
       "title": "iPhone 12 64GB",
       "price": 600,
       "description": "Meet the new iPhone 12. Superfast 5G.¹,² A14 Bionic, the fastest chip in a smartphone. An edge-to-edge OLED display. Pro camera system for next-level low-light photography. It's a beautiful leap forward. Pair iPhone 12 with Verizon, the network America relies on. 5G Ultra Wideband is now in more and more places, so more and more people can do amazing things with Verizon and iPhone 12.",
-      "rating": 4.0,
+      "rating": 4,
       "category": "phones",
       "brand": "Apple",
       "images": [
         "/images/products/phones/iphone/iPhone1264gb_1.webp",
         "/images/products/phones/iphone/iPhone1264gb_2.webp",
         "/images/products/phones/iphone/iPhone1264gb_3.webp"
-      ]
+      ],
+      "cart": false
     },
     {
       "id": 4,
@@ -63,7 +66,8 @@
         "/images/products/phones/iphone/iPhone14Plus128gb_1.webp",
         "/images/products/phones/iphone/iPhone14Plus128gb_2.webp",
         "/images/products/phones/iphone/iPhone14Plus128gb_3.webp"
-      ]
+      ],
+      "cart": false
     },
     {
       "id": 5,
@@ -77,7 +81,8 @@
         "/images/products/phones/samsung/SamsungGalaxyS23+256gb_1.webp",
         "/images/products/phones/samsung/SamsungGalaxyS23+256gb_2.webp",
         "/images/products/phones/samsung/SamsungGalaxyS23+256gb_3.webp"
-      ]
+      ],
+      "cart": false
     },
     {
       "id": 6,
@@ -91,21 +96,23 @@
         "/images/products/phones/samsung/SamsungGalaxyS23Ultra256gb_1.webp",
         "/images/products/phones/samsung/SamsungGalaxyS23Ultra256gb_2.webp",
         "/images/products/phones/samsung/SamsungGalaxyS23Ultra256gb_3.webp"
-      ]
+      ],
+      "cart": false
     },
     {
       "id": 7,
       "title": "Samsung Galaxy S22 128GB",
       "price": 700,
       "description": "The Samsung Galaxy S Series has a legacy of pushing the boundaries of what a smartphone can do, and with Galaxy S23 Ultra, they’re raising that bar again. Galaxy S23 Ultra features the highest camera resolution on a phone, and with stunning Night Mode powered by Nightography, you can take your best shots no matter the lighting. Plus, with the fastest Snapdragon processor yet, you can juggle high-intensity games and toggle between multiple apps or video calls with ease. Working on the go? Write, sketch, edit, create and share from anywhere with a built-in S Pen. Do all this and more on an incredibly large display built for gaming, streaming, creating and doing– and now you can pair it with Verizon’s ultra-fast 5G Ultra Wideband network. Do more of what you love with S23 Ultra and the network America relies on.",
-      "rating": 4.0,
+      "rating": 4,
       "category": "phones",
       "brand": "Samsung",
       "images": [
         "/images/products/phones/samsung/SamsungGalaxyS22128gb_1.webp",
         "/images/products/phones/samsung/SamsungGalaxyS22128gb_2.webp",
         "/images/products/phones/samsung/SamsungGalaxyS22128gb_3.webp"
-      ]
+      ],
+      "cart": false
     },
     {
       "id": 8,
@@ -119,7 +126,8 @@
         "/images/products/phones/samsung/SamsungGalaxyZFold4256gb_1.webp",
         "/images/products/phones/samsung/SamsungGalaxyZFold4256gb_2.webp",
         "/images/products/phones/samsung/SamsungGalaxyZFold4256gb_3.webp"
-      ]
+      ],
+      "cart": false
     },
     {
       "id": 9,
@@ -133,7 +141,8 @@
         "/images/products/phones/google/GooglePixel7128gb_1.webp",
         "/images/products/phones/google/GooglePixel7128gb_2.webp",
         "/images/products/phones/google/GooglePixel7128gb_3.webp"
-      ]
+      ],
+      "cart": false
     },
     {
       "id": 10,
@@ -147,7 +156,8 @@
         "/images/products/phones/google/GooglePixel7Pro256gb_1.webp",
         "/images/products/phones/google/GooglePixel7Pro256gb_2.webp",
         "/images/products/phones/google/GooglePixel7Pro256gb_3.webp"
-      ]
+      ],
+      "cart": false
     },
     {
       "id": 11,
@@ -161,7 +171,8 @@
         "/images/products/phones/google/GooglePixel6a128gb_1.webp",
         "/images/products/phones/google/GooglePixel6a128gb_2.webp",
         "/images/products/phones/google/GooglePixel6a128gb_3.webp"
-      ]
+      ],
+      "cart": false
     },
     {
       "id": 12,
@@ -175,7 +186,8 @@
         "/images/products/phones/google/GooglePixel6Pro256gb_1.webp",
         "/images/products/phones/google/GooglePixel6Pro256gb_2.webp",
         "/images/products/phones/google/GooglePixel6Pro256gb_3.webp"
-      ]
+      ],
+      "cart": false
     }
   ]
 }
