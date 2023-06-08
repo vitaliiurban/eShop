@@ -17,6 +17,7 @@ function Products(props: ProductsProps) {
 
   const { data, error, isLoading, isFetching, isSuccess } =
     useGetProductsQuery();
+  console.log("data", data);
   const products = data as ProductModule[] | undefined;
   const filteredProducts = products?.filter(
     (product) => product.category === props.toggleCategory
@@ -52,6 +53,7 @@ function Products(props: ProductsProps) {
       key={product.id}
     >
       <div className="category-products-img-container">
+        {/* <img className="category-products-image" src={product.images[0]}></img> */}
         <img className="category-products-image" src={product.images[0]}></img>
       </div>
       <div className="category-product-info">
@@ -77,6 +79,7 @@ function Products(props: ProductsProps) {
   useEffect(() => {
     localStorage.setItem("toggleCategory", props.toggleCategory);
   }, [props.toggleCategory]);
+
   return (
     <div className="category-products">
       <div className="category-products-title">
