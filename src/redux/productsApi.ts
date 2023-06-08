@@ -4,15 +4,14 @@ import { ProductModule, CategoriesModule } from "../models/products.model";
 export const productsApi = createApi({
   reducerPath: "productsApi",
   baseQuery: fetchBaseQuery({
-    // baseUrl: "http://localhost:3001",
-    baseUrl: "https://fakestoreapi.com/",
+    baseUrl: "https://ecommerce-hydl.onrender.com",
   }),
   endpoints: (builder) => ({
     getProducts: builder.query<ProductModule[], void>({
       query: () => `/products`,
     }),
     getCategories: builder.query<CategoriesModule[], void>({
-      query: () => "/products/categories",
+      query: () => "/categories",
       transformResponse: (response: string[]) => {
         return response.concat("all categories");
       },
