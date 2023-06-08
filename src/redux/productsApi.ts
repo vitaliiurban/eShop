@@ -4,14 +4,15 @@ import { ProductModule, CategoriesModule } from "../models/products.model";
 export const productsApi = createApi({
   reducerPath: "productsApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:3001",
+    // baseUrl: "http://localhost:3001",
+    baseUrl: "https://fakestoreapi.com/",
   }),
   endpoints: (builder) => ({
     getProducts: builder.query<ProductModule[], void>({
       query: () => `/products`,
     }),
     getCategories: builder.query<CategoriesModule[], void>({
-      query: () => "/categories",
+      query: () => "/products/categories",
       transformResponse: (response: string[]) => {
         return response.concat("all categories");
       },
