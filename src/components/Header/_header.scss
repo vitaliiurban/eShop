@@ -2,7 +2,7 @@
 
 header {
   background-color: variables.$accent-color;
-  font-size: 30px;
+  font-size: 20px;
   display: flex;
   flex-direction: column;
 }
@@ -10,5 +10,5 @@ header {
 .main-menu {
   @include variables.container(flex, space-between, center);
   padding: 0 100px;
-  height: 100px;
+  height: 80px;
 }

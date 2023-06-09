@@ -2,7 +2,7 @@
 
 nav {
   @include variables.container(flex, center, center);
-  gap: 25px;
+  gap: 20px;
   list-style: none;
   height: 100%;
 
@@ -23,8 +23,8 @@ nav {
 }
 
 .categories-arrow {
-  height: 25px;
-  width: 25px;
+  height: 15px;
+  width: 15px;
   object-fit: contain;
   rotate: 180deg;
 }
