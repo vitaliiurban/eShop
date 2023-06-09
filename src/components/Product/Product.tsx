@@ -1,41 +1,49 @@
 import { ProductModule } from "../../models/products.model";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-import { addToCart, deleteFromCart } from "../../redux/cartSlice";
-import { useUpdateProductMutation } from "../../redux/productsApi";
-
+import { CartState, addToCart, deleteFromCart } from "../../redux/cartSlice";
+import { RootState } from "../../redux/store";
+import { useGetProductQuery } from "../../redux/productsApi";
+import { useParams } from "react-router-dom";
 import "./_product.scss";
-export interface ProductProps {
-  toggleProduct: ProductModule;
-}
 
-function Product(props: ProductProps) {
+function Product() {
+  const path = window.location.pathname;
+  const id = path.substring(path.lastIndexOf("/") + 1);
+  console.log(id);
+  const productId = Number(id);
   const dispatch = useDispatch();
-  const [mutate] = useUpdateProductMutation();
+  const { data, error, isLoading, isFetching, isSuccess } =
+    useGetProductQuery(productId);
+  const product = data as ProductModule | undefined;
+  const cartList: CartState = useSelector((state: RootState) => state.cart);
   const [toggleCart, setToggleCart] = useState<boolean>(() => {
-    const storedProduct = localStorage.getItem("product");
-    if (storedProduct) {
-      const parsedProduct = JSON.parse(storedProduct);
-      if (parsedProduct.id === props.toggleProduct.id) {
-        return parsedProduct.cart;
-      }
-    }
-    return props.toggleProduct.cart;
+    const storedCart = localStorage.getItem("cart");
+    const parsedCart: CartState = storedCart ? JSON.parse(storedCart) : [];
+    return parsedCart.some((p) => p.id === product?.id);
   });
 
-  const [mainImage, setMainImage] = useState<string>(
-    props.toggleProduct.images[0]
-  );
-  const [primaryImages, setPrimaryImages] = useState<string[]>([
-    props.toggleProduct.images[1],
-    props.toggleProduct.images[2],
-  ]);
+  const [mainImage, setMainImage] = useState<string>(product?.images[0] || "");
+  const [primaryImages, setPrimaryImages] = useState<string[]>([]);
   const [quantity, setQuantity] = useState<number>(1);
+
+  useEffect(() => {
+    setToggleCart(cartList.some((p) => p.id === product?.id));
+  }, [cartList, product]);
+
+  useEffect(() => {
+    if (product) {
+      setMainImage(product.images[0] || "");
+      setPrimaryImages([product.images[1], product.images[2]]);
+    }
+  }, [product]);
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartList));
+  }, [cartList]);
 
   const handleImage = (image: string, number: number) => {
     const updatedPrimaryImage = [...primaryImages];
     updatedPrimaryImage[number] = mainImage;
-    console.log(updatedPrimaryImage);
     setMainImage(image);
     setPrimaryImages(updatedPrimaryImage);
   };
@@ -43,34 +51,30 @@ function Product(props: ProductProps) {
   const toggleProductCart = (product: ProductModule) => {
     if (!toggleCart) {
       dispatch(addToCart(product));
-      mutate({ ...product, cart: true });
       setToggleCart(true);
     } else {
       dispatch(deleteFromCart(product));
-      mutate({ ...product, cart: false });
       setToggleCart(false);
     }
   };
 
-  useEffect(() => {
-    localStorage.setItem("product", JSON.stringify(props.toggleProduct));
-  }, [toggleCart]);
-
   return (
     <div className="product-container">
-      <div className="breadcrumb">
-        {props.toggleProduct.category.charAt(0).toUpperCase() +
-          props.toggleProduct.category.slice(1) +
-          ` / ` +
-          props.toggleProduct.title}
-      </div>
+      {product && (
+        <div className="breadcrumb">
+          {product.category.charAt(0).toUpperCase() +
+            product.category.slice(1) +
+            ` / ` +
+            product.title}
+        </div>
+      )}
       <div className="product">
         <div className="product-image">
           <div className="product-image-container-main">
             <img className="product-image-main" src={mainImage}></img>
           </div>
           <div className="product-image-container-primary-all">
-            {primaryImages.map((primaryImage, index: number) => {
+            {primaryImages?.map((primaryImage, index: number) => {
               return (
                 <div
                   onClick={() => handleImage(primaryImage, index)}
@@ -86,35 +90,37 @@ function Product(props: ProductProps) {
             })}
           </div>
         </div>
-        <div className="product-info">
-          <div className="product-info-title">{props.toggleProduct.title}</div>
-          <div className="product-info-description">
-            {props.toggleProduct.description}
-          </div>
-          <div className="product-info-price">
-            {props.toggleProduct.price * quantity + ` $`}
-          </div>
-          <div className="product-info-quantity">
-            <div
-              onClick={() =>
-                setQuantity(quantity === 1 ? quantity : quantity - 1)
-              }
-              className="product-info-quantity-minus"
-            >
-              -
+        {product && (
+          <div className="product-info">
+            <div className="product-info-title">{product.title}</div>
+            <div className="product-info-description">
+              {product.description}
             </div>
-            <div className="product-info-quantity-number">{quantity}</div>
-            <div
-              onClick={() => setQuantity(quantity + 1)}
-              className="product-info-quantity-plus"
-            >
-              +
+            <div className="product-info-price">
+              {product.price * quantity + ` $`}
             </div>
+            <div className="product-info-quantity">
+              <div
+                onClick={() =>
+                  setQuantity(quantity === 1 ? quantity : quantity - 1)
+                }
+                className="product-info-quantity-minus"
+              >
+                -
+              </div>
+              <div className="product-info-quantity-number">{quantity}</div>
+              <div
+                onClick={() => setQuantity(quantity + 1)}
+                className="product-info-quantity-plus"
+              >
+                +
+              </div>
+            </div>
+            <button onClick={() => toggleProductCart(product)}>
+              {toggleCart ? "Delete from Cart" : "Add to Cart"}
+            </button>
           </div>
-          <button onClick={() => toggleProductCart(props.toggleProduct)}>
-            {toggleCart ? "Delete from Cart" : "Add to Cart"}
-          </button>
-        </div>
+        )}
       </div>
     </div>
   );

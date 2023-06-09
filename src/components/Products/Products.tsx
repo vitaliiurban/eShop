@@ -17,7 +17,6 @@ function Products(props: ProductsProps) {
 
   const { data, error, isLoading, isFetching, isSuccess } =
     useGetProductsQuery();
-  console.log("data", data);
   const products = data as ProductModule[] | undefined;
   const filteredProducts = products?.filter(
     (product) => product.category === props.toggleCategory
@@ -44,10 +43,7 @@ function Products(props: ProductsProps) {
       onClick={() => openProduct(product)}
       to={
         props.toggleCategory &&
-        `/categories/${props.toggleCategory}/${product.title.replace(
-          /\s+/g,
-          ""
-        )}`
+        `/categories/${props.toggleCategory}/${product.id}`
       }
       className="category-product-container"
       key={product.id}
@@ -76,9 +72,9 @@ function Products(props: ProductsProps) {
   // isFetching && console.log(`...Fetching Products`);
   // error && console.log(`Something went wrong during fetching "Products"`);
 
-  useEffect(() => {
-    localStorage.setItem("toggleCategory", props.toggleCategory);
-  }, [props.toggleCategory]);
+  // useEffect(() => {
+  //   localStorage.setItem("toggleCategory", props.toggleCategory);
+  // }, [props.toggleCategory]);
 
   return (
     <div className="category-products">

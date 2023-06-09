@@ -8,28 +8,35 @@ import Product from "../Product/Product";
 import Cart from "../Cart/Cart";
 
 function App() {
+  // const [toggleCategory, setToggleCategory] = useState<string>("");
   const [toggleCategory, setToggleCategory] = useState<string>(() => {
     return localStorage.getItem("toggleCategory") || "";
   });
   const [toggleProduct, setToggleProduct] = useState<ProductModule | undefined>(
-    () => {
-      const storedProduct = localStorage.getItem("toggleProduct");
-      if (storedProduct) {
-        return JSON.parse(storedProduct);
-      }
-      return undefined;
-    }
+    undefined
   );
+  // const [toggleProduct, setToggleProduct] = useState<ProductModule | undefined>(
+  //   () => {
+  //     const storedProduct = localStorage.getItem("toggleProduct");
+  //     if (storedProduct) {
+  //       return JSON.parse(storedProduct);
+  //     }
+  //     return undefined;
+  //   }
+  // );
 
   const handleClick = (category: CategoriesModule): void => {
     setToggleCategory(category.toString());
   };
-
   useEffect(() => {
-    if (toggleProduct) {
-      localStorage.setItem("toggleProduct", JSON.stringify(toggleProduct));
-    }
-  }, [toggleProduct]);
+    localStorage.setItem("toggleCategory", toggleCategory);
+  }, [toggleCategory]);
+
+  // useEffect(() => {
+  //   if (toggleProduct) {
+  //     localStorage.setItem("toggleProduct", JSON.stringify(toggleProduct));
+  //   }
+  // }, [toggleProduct]);
 
   return (
     <BrowserRouter>
@@ -50,11 +57,8 @@ function App() {
           }
         />
         <Route
-          path={`/categories/${toggleCategory}/${toggleProduct?.title.replace(
-            /\s+/g,
-            ""
-          )}`}
-          element={toggleProduct && <Product toggleProduct={toggleProduct} />}
+          path={`/categories/${toggleCategory}/:id`}
+          element={<Product />}
         />
         <Route path={`/cart`} element={<Cart />}></Route>
       </Routes>

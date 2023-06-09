@@ -7,7 +7,6 @@ export interface ProductModule {
   category: string;
   brand: string;
   images: string[];
-  cart: boolean;
 }
 
 export interface CategoriesModule {
