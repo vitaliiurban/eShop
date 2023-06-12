@@ -7,6 +7,7 @@ import Categories from "./Categories/Categories";
 import { CategoriesModule } from "../../models/products.model";
 
 import "./_header.scss";
+import CartIcon from "./CartIcon/CartIcon";
 
 export interface HeaderProps {
   onClick: (category: CategoriesModule) => void;
@@ -26,7 +27,12 @@ function Header(props: HeaderProps) {
         />
         <input type="text" />
         <div>Account</div>
-        <Link to={`/cart`}>Cart</Link>
+        <Link to={`/wish`}>Wish</Link>
+        <div>
+          <Link to={`/cart`}>
+            <CartIcon />
+          </Link>
+        </div>
       </div>
       {toggleMenu && (
         <Categories

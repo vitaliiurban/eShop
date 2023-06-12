@@ -4,7 +4,7 @@ import { ProductModule, CategoriesModule } from "../models/products.model";
 export const productsApi = createApi({
   reducerPath: "productsApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://ecommerce-hydl.onrender.com",
+    baseUrl: "https://emerald-bat-shoe.cyclic.app",
   }),
   endpoints: (builder) => ({
     getCategories: builder.query<CategoriesModule[], void>({

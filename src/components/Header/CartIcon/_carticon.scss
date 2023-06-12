@@ -1,0 +1,30 @@
+@use "../../../styles/variables";
+
+.carticon {
+  @include variables.container(flex, center, center);
+  gap: 5px;
+  width: 100px;
+  &-icon {
+    fill: variables.$text-color;
+    width: 25px;
+    transition: all 0.5s;
+  }
+  &:hover .cart-icon,
+  &:hover .cart-icon {
+    transition: all 0.2s;
+    transform: scale(1.1);
+  }
+
+  &:hover .cart-icon {
+    fill: variables.$primary-button;
+  }
+
+  &-title {
+    color: variables.$text-color;
+    font-weight: bold;
+    transition: all 0.2s;
+  }
+  &:hover .cart-title {
+    color: variables.$primary-button;
+  }
+}

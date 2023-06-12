@@ -2,11 +2,11 @@
 .category-products {
   display: flex;
   flex-direction: column;
-  margin: 50px 150px;
+  margin: 0px 250px;
 }
 
 .category-products-title {
-  font-size: 50px;
+  font-size: 30px;
   font-weight: bold;
   margin: 50px 0;
 }
@@ -14,7 +14,6 @@
   display: grid;
   grid-template-columns: auto auto auto auto;
   grid-gap: 30px;
-  padding: 0px 100px;
 }
 
 .category-product-container {
@@ -52,19 +51,9 @@
   font-size: 35px;
 }
 .category-product-container {
-  transition: transform 0.2s ease; /* анімація збільшення зображення */
+  transition: transform 0.2s ease;
 }
 
 .category-product-container:hover {
-  transform: scale(1.1); /* збільшуємо розмір зображення на 10% */
+  transform: scale(1.1);
 }
-
-/* .fade-in {
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.fade-in.show {
-  opacity: 1;
-  padding: 20px 0;
-} */

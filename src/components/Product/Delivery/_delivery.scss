@@ -1,0 +1,46 @@
+@use "../../../styles/variables";
+.delivery {
+  width: 500px;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid variables.$accent-color;
+  margin-bottom: 30px;
+
+  .icon-free,
+  .icon-return {
+    width: 25px;
+  }
+  .icon-free {
+    fill: variables.$primary-button;
+  }
+  .icon-return {
+    stroke: variables.$primary-button;
+    margin-left: 1px;
+  }
+
+  &-container-free {
+    padding: 15px;
+    border-bottom: 1px solid variables.$accent-color;
+    display: flex;
+  }
+  &-container-return {
+    display: flex;
+    padding: 15px;
+  }
+  &-free.icon,
+  &-return.icon {
+    @include variables.container(flex, null, center);
+    width: 10%;
+  }
+  &-free,
+  &-return {
+    width: 90%;
+    &-title {
+      font-weight: bold;
+    }
+    &-description {
+      font-weight: 300;
+      font-size: 16px;
+    }
+  }
+}

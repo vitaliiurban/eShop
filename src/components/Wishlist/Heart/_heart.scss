@@ -1,0 +1,24 @@
+@use "../../../styles/variables";
+
+.heart {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 35px;
+  height: 35px;
+  transition: all 0.1s;
+  &.active {
+    fill: variables.$delete-button;
+  }
+  &.active:hover {
+    transform: scale(1.1);
+  }
+
+  &.inactive {
+    fill: white;
+  }
+  &.inactive:hover {
+    transform: scale(1.1);
+    fill: variables.$delete-button;
+  }
+}

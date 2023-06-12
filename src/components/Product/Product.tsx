@@ -1,63 +1,57 @@
 import { ProductModule } from "../../models/products.model";
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-import { CartState, addToCart, deleteFromCart } from "../../redux/cartSlice";
+import {
+  CartState,
+  CartItem,
+  addToCart,
+  deleteFromCart,
+} from "../../redux/cartSlice";
 import { RootState } from "../../redux/store";
 import { useGetProductQuery } from "../../redux/productsApi";
+import { WishState, addToWish, deleteFromWish } from "../../redux/wishSlice";
+
 import "./_product.scss";
 
+import Heart from "../Wishlist/Heart/Heart";
+import Delivery from "./Delivery/Delivery";
+import Quantity from "./Quantity/Quantity";
+
 function Product() {
+  const dispatch = useDispatch();
   const path = window.location.pathname;
   const id = path.substring(path.lastIndexOf("/") + 1);
-  console.log(id);
   const productId = Number(id);
-  const dispatch = useDispatch();
   const { data, error, isLoading, isFetching, isSuccess } =
     useGetProductQuery(productId);
   const product = data as ProductModule | undefined;
   const cartList: CartState = useSelector((state: RootState) => state.cart);
+  const cartItem = cartList.find((item: CartItem) => item.product === product);
+
+  const [quantity, setQuantity] = useState<number>(cartItem?.quantity || 1);
+  const wishList: WishState = useSelector((state: RootState) => state.wish);
   const [toggleCart, setToggleCart] = useState<boolean>(() => {
     const storedCart = localStorage.getItem("cart");
     const parsedCart: CartState = storedCart ? JSON.parse(storedCart) : [];
-    return parsedCart.some((p) => p.id === product?.id);
+    return parsedCart.some((item) => item.product.id === product?.id);
   });
 
   const [mainImage, setMainImage] = useState<string>(product?.images[0] || "");
   const [primaryImages, setPrimaryImages] = useState<string[]>([]);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const [quantity, setQuantity] = useState<number>(1);
+  const [toggleWish, setToggleWish] = useState<boolean>(
+    wishList.some((item) => item.id === product?.id)
+  );
 
-  console.log("index", currentIndex);
   const toggleProductCart = (product: ProductModule) => {
     if (!toggleCart) {
-      dispatch(addToCart(product));
+      dispatch(addToCart({ product, quantity }));
       setToggleCart(true);
     } else {
-      dispatch(deleteFromCart(product));
+      dispatch(deleteFromCart({ product, quantity }));
       setToggleCart(false);
     }
   };
-
-  useEffect(() => {
-    setToggleCart(cartList.some((p) => p.id === product?.id));
-  }, [cartList, product]);
-  useEffect(() => {
-    if (product) {
-      setMainImage(product.images[0] || "");
-      setPrimaryImages([
-        product.images[0],
-        product.images[1],
-        product.images[2],
-      ]);
-    }
-  }, [product]);
-  useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(cartList));
-  }, [cartList]);
-
-  useEffect(() => {
-    setMainImage(product?.images[currentIndex] || "");
-  }, [currentIndex]);
 
   const handleImage = (image: string, index: number) => {
     setMainImage(image);
@@ -75,6 +69,46 @@ function Product() {
     }
   };
 
+  const handleWish = () => {
+    dispatch(
+      !toggleWish
+        ? addToWish(product as ProductModule)
+        : deleteFromWish(product as ProductModule)
+    );
+    setToggleWish(!toggleWish);
+  };
+
+  useEffect(() => {
+    setToggleWish(wishList.some((item) => item.id === product?.id));
+  }, [wishList, product]);
+
+  useEffect(() => {
+    localStorage.setItem("wish", JSON.stringify(wishList));
+  }, [wishList]);
+
+  useEffect(() => {
+    setToggleCart(cartList.some((item) => item.product.id === product?.id));
+  }, [cartList, product]);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cartList));
+  }, [cartList]);
+
+  useEffect(() => {
+    if (product) {
+      setMainImage(product.images[0] || "");
+      setPrimaryImages([
+        product.images[0],
+        product.images[1],
+        product.images[2],
+      ]);
+    }
+  }, [product]);
+
+  useEffect(() => {
+    setMainImage(product?.images[currentIndex] || "");
+  }, [currentIndex]);
+
   return (
     <div className="product-container">
       {product && (
@@ -90,6 +124,7 @@ function Product() {
       <div className="product">
         <div className="product-image">
           <div className="product-image-container-main">
+            <Heart toggleWish={toggleWish} onClick={() => handleWish()} />
             <div
               onClick={() => handleArrowLeft()}
               className="product-arrow-container"
@@ -147,23 +182,13 @@ function Product() {
             <div className="product-info-price">
               {product.price * quantity + ` $`}
             </div>
-            <div className="product-info-quantity">
-              <div
-                onClick={() =>
-                  setQuantity(quantity === 1 ? quantity : quantity - 1)
-                }
-                className="product-info-quantity-minus"
-              >
-                -
-              </div>
-              <div className="product-info-quantity-number">{quantity}</div>
-              <div
-                onClick={() => setQuantity(quantity + 1)}
-                className="product-info-quantity-plus"
-              >
-                +
-              </div>
-            </div>
+            <Quantity
+              product={product}
+              quantity={quantity}
+              toggleCart={toggleCart}
+              setQuantity={setQuantity}
+              componentName="Product"
+            />
             <div className="line"></div>
             <div className="product-buttons">
               <div
@@ -179,22 +204,7 @@ function Product() {
                 {toggleCart ? "Delete from Cart" : "Add to Cart"}
               </div>
             </div>
-            <div className="delivery">
-              <div className="delivery-container-free">
-                <div className="delivery-free icon">icon</div>
-                <div className="delivery-free">
-                  <div className="delivery-free-title">Free Delivery</div>
-                  <div>Enter your Postal code for Delivery Availability</div>
-                </div>
-              </div>
-              <div className="delivery-container-return">
-                <div className="delivery-return icon">icon</div>
-                <div className="delivery-return">
-                  <div className="delivery-return-title">Return Delivery</div>
-                  <div>Free 30days Delivery Return. Details</div>
-                </div>
-              </div>
-            </div>
+            <Delivery />
           </div>
         )}
       </div>

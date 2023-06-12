@@ -1,0 +1,47 @@
+@use "../../../styles/variables";
+.quantity {
+  user-select: none;
+  font-size: 20px;
+  display: flex;
+  background-color: white;
+  width: 180px;
+  height: 55px;
+  @include variables.container(flex, space-around, center);
+  border-radius: 30px;
+  transition: all 0.2s;
+  &:hover {
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.03);
+  }
+  &.inactive {
+    background-color: variables.$accent-color;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  }
+  &-minus,
+  &-plus {
+    @include variables.container(flex, center, center);
+    height: 100%;
+    width: 40%;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  &-number {
+    @include variables.container(flex, center, center);
+    height: 100%;
+    width: 30%;
+  }
+  &-minus {
+    border-radius: 30px 0px 0px 30px;
+  }
+  &-plus {
+    border-radius: 0px 30px 30px 0px;
+  }
+  &-minus:hover,
+  &-plus:hover {
+    background-color: variables.$accent-color;
+    &.inactive {
+      background-color: white;
+      background-color: variables.$accent-color;
+      cursor: default;
+    }
+  }
+}

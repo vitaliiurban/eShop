@@ -1,0 +1,26 @@
+@use "../../styles/variables";
+.cart {
+  margin: 0px 250px;
+  &-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 50px 0;
+  }
+  &-container {
+    display: flex;
+  }
+  &-product {
+    @include variables.container(flex, space-between, center);
+    background-color: white;
+    border-radius: 20px;
+    padding: 20px;
+  }
+  &-products {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  &-product-img {
+    width: 100px;
+  }
+}

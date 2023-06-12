@@ -6,6 +6,7 @@ import Home from "../Home/Home";
 import Products from "../Products/Products";
 import Product from "../Product/Product";
 import Cart from "../Cart/Cart";
+import Wish from "../Wishlist/Wish";
 
 function App() {
   // const [toggleCategory, setToggleCategory] = useState<string>("");
@@ -61,6 +62,7 @@ function App() {
           element={<Product />}
         />
         <Route path={`/cart`} element={<Cart />}></Route>
+        <Route path={`/wish`} element={<Wish />}></Route>
       </Routes>
     </BrowserRouter>
   );

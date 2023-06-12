@@ -8,8 +8,6 @@
   &-category {
     font-weight: 300;
   }
-  &-title {
-  }
 }
 
 .line {
@@ -37,39 +35,6 @@
     &-price {
       font-size: 30px;
       font-weight: bold;
-    }
-    &-quantity {
-      font-size: 20px;
-      display: flex;
-      background-color: white;
-      width: 180px;
-      height: 55px;
-      @include variables.container(flex, space-around, center);
-      border-radius: 30px;
-      &-minus,
-      &-plus {
-        @include variables.container(flex, center, center);
-        height: 100%;
-        width: 35%;
-        cursor: pointer;
-        transition: all 0.2s;
-      }
-      &-number {
-        @include variables.container(flex, center, center);
-        height: 100%;
-        width: 30%;
-      }
-      &-minus {
-        border-radius: 30px 0px 0px 30px;
-      }
-      &-plus {
-        border-radius: 0px 30px 30px 0px;
-      }
-
-      &-minus:hover,
-      &-plus:hover {
-        background-color: variables.$accent-color;
-      }
     }
   }
 
@@ -103,6 +68,7 @@
       &:hover {
         background-color: variables.$primary-button;
         color: white;
+        box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.05);
       }
     }
     &.del {
@@ -112,6 +78,7 @@
       &:hover {
         background-color: variables.$delete-button;
         color: white;
+        box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.05);
       }
     }
   }
@@ -127,6 +94,7 @@
   margin-left: 120px;
   gap: 25px;
   &-container-main {
+    position: relative;
     height: 75%;
     width: 65%;
     background-color: white;
@@ -139,7 +107,7 @@
       box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.05);
     }
     .product-image-main {
-      width: 80%;
+      width: 90%;
       object-fit: contain;
     }
     .product-arrow {
@@ -147,19 +115,26 @@
       padding: 10px 15px;
       border-radius: 30px;
       text-align: center;
+      transition: 0.2s;
       &.inactive {
-        cursor: not-allowed;
+        cursor: default;
         opacity: 0.4;
+      }
+      &.active:hover {
+        transform: scale(1.1);
+        box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.05);
       }
     }
     .product-arrow-container {
       display: flex;
       justify-content: center;
       width: 10%;
+      margin: 10px;
     }
     .product-image-main-container {
-      text-align: center;
+      @include variables.container(flex, center, center);
       width: 80%;
+      height: 100%;
       &:hover .product-image-main {
         transform: scale(1.1);
       }
@@ -191,7 +166,7 @@
     &.active {
       border: 1px solid variables.$primary-button;
       opacity: 0.4;
-      cursor: not-allowed;
+      cursor: default;
       &:hover {
         box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
         .product-image-primary {
@@ -220,33 +195,4 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-}
-
-.delivery {
-  width: 500px;
-  background-color: white;
-  border-radius: 10px;
-  border: 1px solid variables.$accent-color;
-  margin-bottom: 30px;
-
-  &-container-free {
-    padding: 15px;
-    border-bottom: 1px solid variables.$accent-color;
-    display: flex;
-  }
-  &-container-return {
-    display: flex;
-    padding: 15px;
-  }
-  &-free.icon,
-  &-return.icon {
-    width: 10%;
-  }
-  &-free,
-  &-return {
-    width: 90%;
-    &-title {
-      font-weight: bold;
-    }
-  }
 }
