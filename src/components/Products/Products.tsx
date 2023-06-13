@@ -49,7 +49,6 @@ function Products(props: ProductsProps) {
       key={product.id}
     >
       <div className="category-products-img-container">
-        {/* <img className="category-products-image" src={product.images[0]}></img> */}
         <img className="category-products-image" src={product.images[0]}></img>
       </div>
       <div className="category-product-info">

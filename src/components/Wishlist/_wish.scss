@@ -1,0 +1,49 @@
+@use "../../styles/variables";
+.wish {
+  margin: 0px 550px;
+  &-title {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 50px 0;
+  }
+  &-products {
+    @include variables.container(flex, center, center);
+    flex-direction: column;
+    gap: 20px;
+    &-clear {
+      padding: 15px 30px;
+      color: white;
+      border-radius: 25px;
+      background-color: variables.$delete-button;
+      transition: all 0.2s;
+      cursor: pointer;
+      &:hover {
+        background-color: darken(variables.$delete-button, 20%);
+      }
+    }
+  }
+  &-product {
+    @include variables.container(flex, space-between, center);
+    width: 800px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 20px;
+    &-title {
+      width: 300px;
+      text-align: center;
+    }
+  }
+  &-empty {
+    @include variables.container(flex, center, center);
+    flex-direction: column;
+    gap: 10px;
+    &-title {
+      font-size: 25px;
+      color: variables.$text-color;
+    }
+    .cart-icon-empty {
+      fill: variables.$accent-color;
+      width: 200px;
+    }
+  }
+}

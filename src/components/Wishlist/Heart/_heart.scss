@@ -1,12 +1,33 @@
 @use "../../../styles/variables";
 
+.wishicon {
+  @include variables.container(flex, center, center);
+  gap: 5px;
+  &:hover .wishicon-title {
+    color: variables.$delete-button;
+  }
+  &-title {
+    color: variables.$text-color;
+    font-weight: bold;
+    transition: all 0.2s;
+  }
+  &:hover .header-heart.inactive {
+    transform: scale(1.1);
+    fill: variables.$delete-button;
+  }
+  &:hover .stroke-header {
+    fill: variables.$delete-button;
+    stroke: variables.$delete-button;
+  }
+}
+
 .heart {
   position: absolute;
   top: 15px;
   right: 15px;
   width: 35px;
   height: 35px;
-  transition: all 0.1s;
+  transition: all 0.2s;
   &.active {
     fill: variables.$delete-button;
   }
@@ -20,5 +41,57 @@
   &.inactive:hover {
     transform: scale(1.1);
     fill: variables.$delete-button;
+  }
+}
+
+.header-heart {
+  transition: all 0.2s;
+  width: 25px;
+  height: 25px;
+
+  &.active:hover {
+    transform: scale(1.1);
+  }
+}
+
+.stroke {
+  &.active {
+    fill: variables.$delete-button;
+  }
+
+  transition: all 0.2s;
+  stroke: variables.$delete-button;
+  stroke-width: 40;
+  stroke-miterlimit: 10;
+  fill: white;
+  &:hover {
+    fill: variables.$delete-button;
+  }
+}
+
+.stroke-header {
+  transition: all 0.2s;
+  stroke: variables.$text-color;
+  stroke-width: 50;
+  stroke-miterlimit: 10;
+  fill: variables.$accent-color;
+}
+
+.wish-heart {
+  transition: all 0.2s;
+  width: 35px;
+  height: 35px;
+}
+
+.stroke-wish {
+  stroke: variables.$delete-button;
+  stroke-width: 40;
+  stroke-miterlimit: 10;
+  fill: variables.$delete-button;
+  transition: all 0.2s;
+  cursor: pointer;
+  &:hover {
+    fill: white;
+    stroke: variables.$delete-button;
   }
 }

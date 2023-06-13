@@ -1,4 +1,5 @@
 import { useState, Dispatch, SetStateAction } from "react";
+import { useGetCategoriesQuery } from "../../redux/productsApi";
 import { Link } from "react-router-dom";
 
 import Navbar from "./Navbar/Navbar";
@@ -8,36 +9,42 @@ import { CategoriesModule } from "../../models/products.model";
 
 import "./_header.scss";
 import CartIcon from "./CartIcon/CartIcon";
-
+import Heart from "../Wishlist/Heart/Heart";
 export interface HeaderProps {
   onClick: (category: CategoriesModule) => void;
   setToggleCategory: Dispatch<SetStateAction<string>>;
 }
 
 function Header(props: HeaderProps) {
+  const { data, error, isLoading, isFetching, isSuccess } =
+    useGetCategoriesQuery(undefined, { refetchOnMountOrArgChange: false });
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
 
   return (
     <header onMouseLeave={() => setToggleMenu(false)}>
       <div className="main-menu">
-        <img alt="" />
+        <img className="main-menu-image" alt="eShop" src="/logo.png" />
         <Navbar
           setToggleMenu={setToggleMenu}
           setToggleCategory={props.setToggleCategory}
         />
-        <input type="text" />
-        <div>Account</div>
-        <Link to={`/wish`}>Wish</Link>
-        <div>
-          <Link to={`/cart`}>
-            <CartIcon />
-          </Link>
-        </div>
+        <input className="main-menu-search" type="text" placeholder="Search" />
+
+        <Link className="wishicon" to={`/wish`}>
+          <Heart toggleWish={false} className={"header"} />
+          <div className="wishicon-title">Wish</div>
+        </Link>
+
+        <Link className="carticon" to={`/cart`}>
+          <CartIcon />
+          <div className="carticon-title">Cart</div>
+        </Link>
       </div>
       {toggleMenu && (
         <Categories
           setToggleCategory={props.setToggleCategory}
           onClick={props.onClick}
+          data={data}
         />
       )}
     </header>

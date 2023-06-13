@@ -27,6 +27,7 @@
 }
 .category-products-img-container {
   @include variables.container(flex, center, center);
+  height: 70%;
 }
 
 .category-products-image {

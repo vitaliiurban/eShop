@@ -5,6 +5,7 @@
 }
 
 .pagination-btns {
+  user-select: none;
   @include variables.container(flex, center);
   gap: 20px;
   list-style: none;
@@ -26,7 +27,7 @@
 }
 .pagination-disabled a {
   background-color: #d3d3d3;
-  cursor: not-allowed;
+  cursor: default;
   & a:hover {
     background-color: #d3d3d3;
   }

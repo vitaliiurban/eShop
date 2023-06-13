@@ -1,5 +1,6 @@
 @use "../../../styles/variables";
-.quantity {
+.product-quantity,
+.cart-quantity {
   user-select: none;
   font-size: 20px;
   display: flex;
@@ -41,6 +42,22 @@
     &.inactive {
       background-color: white;
       background-color: variables.$accent-color;
+      cursor: default;
+    }
+  }
+}
+
+.cart-quantity {
+  border: solid 2px variables.$background-color;
+  width: 150px;
+  height: 45px;
+  font-size: 16px;
+  &-minus:hover,
+  &-plus:hover {
+    background-color: variables.$background-color;
+    &.inactive {
+      background-color: white;
+      background-color: variables.$background-color;
       cursor: default;
     }
   }

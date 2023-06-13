@@ -9,6 +9,16 @@ header {
 
 .main-menu {
   @include variables.container(flex, space-between, center);
-  padding: 0 100px;
+  padding: 0 250px;
   height: 80px;
+  &-image {
+    width: 125px;
+    height: 40px;
+  }
+  &-search {
+    background-color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+  }
 }

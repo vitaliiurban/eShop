@@ -25,11 +25,10 @@ function Quantity({
     product: ProductModule,
     quantity: number
   ) => {
-    console.log(toggleCart);
     if (componentName === "Cart") {
       handleQuantityChange(type, product, quantity);
     }
-    if (componentName === "Product") {
+    if (componentName === "Product" && !toggleCart) {
       handleProductQuantityChange(type);
     }
   };
@@ -39,38 +38,55 @@ function Quantity({
     product: ProductModule,
     quantity: number
   ) => {
+    console.log(product);
+    console.log(quantity);
     let newQuantity = quantity;
     if (type === "-") {
-      newQuantity -= 1;
+      if (newQuantity > 1) {
+        newQuantity -= 1;
+      }
     } else if (type === "+") {
       newQuantity += 1;
     }
     dispatch(updateQuantity({ productId: product.id, quantity: newQuantity }));
+    quantity = newQuantity;
   };
 
   const handleProductQuantityChange = (type: string) => {
     if (type === "-") {
-      console.log(" setQuantity(quantity - 1)");
-      setQuantity && setQuantity(quantity - 1);
+      setQuantity && setQuantity(quantity > 1 ? quantity - 1 : quantity);
     }
     if (type === "+") {
-      console.log(" setQuantity(quantity + 1)");
       setQuantity && setQuantity(quantity + 1);
     }
   };
 
   return (
-    <div className={`quantity ${toggleCart ? "inactive" : "active"}`}>
+    <div
+      className={`${componentName === "Cart" ? "cart" : "product"}-quantity ${
+        componentName === "Product" && toggleCart ? "inactive" : "active"
+      }`}
+    >
       <div
         onClick={() => changeQuantity("-", product, quantity)}
-        className={`quantity-minus ${toggleCart ? "inactive" : "active"}`}
+        className={`${
+          componentName === "Cart" ? "cart" : "product"
+        }-quantity-minus ${toggleCart ? "inactive" : "active"}`}
       >
         -
       </div>
-      <div className={"quantity-number"}>{quantity}</div>
+      <div
+        className={`${
+          componentName === "Cart" ? "cart" : "product"
+        }-quantity-number`}
+      >
+        {quantity}
+      </div>
       <div
         onClick={() => changeQuantity("+", product, quantity)}
-        className={`quantity-plus ${toggleCart ? "inactive" : "active"}`}
+        className={`${
+          componentName === "Cart" ? "cart" : "product"
+        }-quantity-plus ${toggleCart ? "inactive" : "active"}`}
       >
         +
       </div>

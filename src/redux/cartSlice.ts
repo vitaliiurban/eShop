@@ -40,7 +40,7 @@ export const cartSlice = createSlice({
       const itemIndex = state.findIndex(
         (item) => item.product.id === productId
       );
-      if (itemIndex !== 1) {
+      if (itemIndex !== -1) {
         state[itemIndex].quantity = quantity;
       }
     },

@@ -7,15 +7,15 @@
   &-icon {
     fill: variables.$text-color;
     width: 25px;
-    transition: all 0.5s;
+    transition: all 0.2s;
   }
-  &:hover .cart-icon,
-  &:hover .cart-icon {
+  &:hover .carticon-icon,
+  &:hover .carticon-icon {
     transition: all 0.2s;
     transform: scale(1.1);
   }
 
-  &:hover .cart-icon {
+  &:hover .carticon-icon {
     fill: variables.$primary-button;
   }
 
@@ -24,7 +24,7 @@
     font-weight: bold;
     transition: all 0.2s;
   }
-  &:hover .cart-title {
+  &:hover .carticon-title {
     color: variables.$primary-button;
   }
 }

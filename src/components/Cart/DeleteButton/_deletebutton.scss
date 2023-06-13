@@ -1,0 +1,23 @@
+@use "../../../styles/variables";
+
+.cart-delete-button {
+  transition: all 0.2s;
+  cursor: pointer;
+  &:hover .cart-delete-button-title {
+    color: variables.$delete-button;
+  }
+  &:hover .delete-icon {
+    stroke: variables.$delete-button;
+    transform: scale(1.1);
+  }
+
+  &.all {
+    @include variables.container(flex, center, center);
+    background-color: white;
+    color: variables.$accent-color;
+    width: 150px;
+    padding: 5px;
+    border-radius: 20px;
+    gap: 10px;
+  }
+}

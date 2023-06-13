@@ -1,0 +1,6 @@
+@use "../../../../styles/variables";
+.delete-icon {
+  stroke: variables.$accent-color;
+  width: 28px;
+  height: 28px;
+}

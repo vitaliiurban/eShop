@@ -1,6 +1,23 @@
 @use "../../styles/variables";
 .cart {
   margin: 0px 250px;
+  &-info {
+    background-color: white;
+    color: lighten(variables.$text-color, 40%);
+    border-radius: 20px;
+    padding: 20px;
+
+    @include variables.container(flex, space-between, center);
+    &-quantity {
+      margin-left: 120px;
+    }
+    &-product {
+      margin-left: 10px;
+    }
+    &-price {
+      margin-right: 10px;
+    }
+  }
   &-title {
     font-size: 30px;
     font-weight: bold;
@@ -8,19 +25,96 @@
   }
   &-container {
     display: flex;
+    justify-content: space-between;
   }
   &-product {
     @include variables.container(flex, space-between, center);
     background-color: white;
     border-radius: 20px;
     padding: 20px;
+
+    &-title {
+      width: 30%;
+      font-weight: 500;
+      margin-right: 50px;
+      margin-left: 20px;
+    }
+    &-quantity {
+      @include variables.container(flex, center, center);
+      gap: 20px;
+      margin-right: 200px;
+    }
+    &-price {
+      width: 60px;
+    }
   }
   &-products {
+    width: 65%;
     display: flex;
     flex-direction: column;
     gap: 15px;
   }
+
   &-product-img {
     width: 100px;
+  }
+
+  &-checkout {
+    display: flex;
+    flex-direction: column;
+    height: 280px;
+    gap: 30px;
+    padding: 20px;
+    width: 33%;
+    background-color: white;
+    color: lighten(variables.$text-color, 40%);
+    border-radius: 20px;
+    &-subtotal,
+    &-discount,
+    &-grand {
+      @include variables.container(flex, space-between, center);
+    }
+    &-subtotal {
+      color: variables.$text-color;
+    }
+    &-grand {
+      &-title,
+      &-number {
+        font-size: 18px;
+        font-weight: 700;
+        color: variables.$text-color;
+      }
+    }
+    &-button-now {
+      padding: 15px 45px;
+      @include variables.container(flex, center, center);
+      color: white;
+      background-color: variables.$primary-button;
+      border-radius: 30px;
+      transition: all 0.2s;
+      cursor: pointer;
+      &:hover {
+        background-color: darken(variables.$primary-button, 10%);
+      }
+    }
+  }
+  &-line {
+    border-top: 1px solid variables.$accent-color;
+    width: 100%;
+  }
+
+  &-empty {
+    @include variables.container(flex, center, center);
+    flex-direction: column;
+    gap: 10px;
+    &-title {
+      font-size: 30px;
+      color: variables.$text-color;
+    }
+    .cart-icon-empty {
+      fill: variables.$accent-color;
+
+      width: 200px;
+    }
   }
 }

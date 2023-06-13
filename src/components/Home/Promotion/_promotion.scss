@@ -1,13 +1,27 @@
 @use "../../../styles/variables";
 
 .promotion {
-  @include variables.container(flex, center, center);
+  @include variables.container(flex, space-between, center);
   margin: 50px;
-  height: 300px;
+  height: 600px;
+  border-radius: 30px;
   background-image: linear-gradient(
     to bottom right,
-    rgb(115, 34, 147),
-    rgb(161, 47, 158)
+    lighten(variables.$primary-button, 20%),
+    variables.$primary-button
   );
   font-size: 50px;
+  font-weight: bold;
+  color: white;
+  &-container-image {
+    height: 100%;
+  }
+
+  &-image {
+    height: 90%;
+    object-fit: contain;
+    &.reverse {
+      transform: scaleX(-1);
+    }
+  }
 }

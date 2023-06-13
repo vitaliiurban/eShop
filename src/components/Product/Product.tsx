@@ -1,12 +1,7 @@
 import { ProductModule } from "../../models/products.model";
 import { useDispatch, useSelector } from "react-redux";
 import { useState, useEffect } from "react";
-import {
-  CartState,
-  CartItem,
-  addToCart,
-  deleteFromCart,
-} from "../../redux/cartSlice";
+import { CartState, CartItem } from "../../redux/cartSlice";
 import { RootState } from "../../redux/store";
 import { useGetProductQuery } from "../../redux/productsApi";
 import { WishState, addToWish, deleteFromWish } from "../../redux/wishSlice";
@@ -16,6 +11,7 @@ import "./_product.scss";
 import Heart from "../Wishlist/Heart/Heart";
 import Delivery from "./Delivery/Delivery";
 import Quantity from "./Quantity/Quantity";
+import Button from "./Button/Button";
 
 function Product() {
   const dispatch = useDispatch();
@@ -28,7 +24,9 @@ function Product() {
   const cartList: CartState = useSelector((state: RootState) => state.cart);
   const cartItem = cartList.find((item: CartItem) => item.product === product);
 
-  const [quantity, setQuantity] = useState<number>(cartItem?.quantity || 1);
+  const [quantity, setQuantity] = useState<number>(() =>
+    cartItem ? cartItem.quantity : 1
+  );
   const wishList: WishState = useSelector((state: RootState) => state.wish);
   const [toggleCart, setToggleCart] = useState<boolean>(() => {
     const storedCart = localStorage.getItem("cart");
@@ -42,16 +40,6 @@ function Product() {
   const [toggleWish, setToggleWish] = useState<boolean>(
     wishList.some((item) => item.id === product?.id)
   );
-
-  const toggleProductCart = (product: ProductModule) => {
-    if (!toggleCart) {
-      dispatch(addToCart({ product, quantity }));
-      setToggleCart(true);
-    } else {
-      dispatch(deleteFromCart({ product, quantity }));
-      setToggleCart(false);
-    }
-  };
 
   const handleImage = (image: string, index: number) => {
     setMainImage(image);
@@ -70,6 +58,7 @@ function Product() {
   };
 
   const handleWish = () => {
+    console.log("handleWish");
     dispatch(
       !toggleWish
         ? addToWish(product as ProductModule)
@@ -124,7 +113,9 @@ function Product() {
       <div className="product">
         <div className="product-image">
           <div className="product-image-container-main">
-            <Heart toggleWish={toggleWish} onClick={() => handleWish()} />
+            <div onClick={() => handleWish()}>
+              <Heart toggleWish={toggleWish} />
+            </div>
             <div
               onClick={() => handleArrowLeft()}
               className="product-arrow-container"
@@ -191,18 +182,22 @@ function Product() {
             />
             <div className="line"></div>
             <div className="product-buttons">
-              <div
-                className="product-button buynow"
-                onClick={() => console.log("buy now")}
-              >
-                {"Buy now"}
-              </div>
-              <div
-                className={`product-button ${toggleCart ? "del" : "add"}`}
-                onClick={() => toggleProductCart(product)}
-              >
-                {toggleCart ? "Delete from Cart" : "Add to Cart"}
-              </div>
+              <Button
+                product={product}
+                quantity={quantity}
+                title={`Buy now`}
+                className={`button buynow`}
+                toggleCart={toggleCart}
+                setToggleCart={setToggleCart}
+              />
+              <Button
+                product={product}
+                quantity={quantity}
+                title={`${toggleCart ? "Delete from Cart" : "Add to cart"}`}
+                className={`button ${toggleCart ? "del" : "add"}`}
+                toggleCart={toggleCart}
+                setToggleCart={setToggleCart}
+              />
             </div>
             <Delivery />
           </div>
