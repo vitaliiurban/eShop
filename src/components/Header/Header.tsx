@@ -12,6 +12,7 @@ import CartIcon from "./CartIcon/CartIcon";
 import Heart from "../Wishlist/Heart/Heart";
 export interface HeaderProps {
   onClick: (category: CategoriesModule) => void;
+  toggleMenu?: boolean;
   setToggleCategory: Dispatch<SetStateAction<string>>;
 }
 
@@ -23,7 +24,9 @@ function Header(props: HeaderProps) {
   return (
     <header onMouseLeave={() => setToggleMenu(false)}>
       <div className="main-menu">
-        <img className="main-menu-image" alt="eShop" src="/logo.png" />
+        <Link to={"/"}>
+          <img className="main-menu-image" alt="eShop" src="/logo.png" />
+        </Link>
         <Navbar
           setToggleMenu={setToggleMenu}
           setToggleCategory={props.setToggleCategory}
@@ -42,6 +45,7 @@ function Header(props: HeaderProps) {
       </div>
       {toggleMenu && (
         <Categories
+          toggleMenu={toggleMenu}
           setToggleCategory={props.setToggleCategory}
           onClick={props.onClick}
           data={data}
