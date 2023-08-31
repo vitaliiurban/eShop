@@ -1,4 +1,4 @@
-import { useState, Dispatch, SetStateAction } from "react";
+import { useState, Dispatch, SetStateAction, useEffect } from "react";
 import { useGetCategoriesQuery } from "../../redux/productsApi";
 import { Link } from "react-router-dom";
 
@@ -14,12 +14,17 @@ export interface HeaderProps {
   onClick: (category: CategoriesModule) => void;
   toggleMenu?: boolean;
   setToggleCategory: Dispatch<SetStateAction<string>>;
+  setBlurScreen: Dispatch<SetStateAction<boolean>>;
 }
 
 function Header(props: HeaderProps) {
   const { data, error, isLoading, isFetching, isSuccess } =
     useGetCategoriesQuery(undefined, { refetchOnMountOrArgChange: false });
   const [toggleMenu, setToggleMenu] = useState<boolean>(false);
+
+  useEffect(() => {
+    props.setBlurScreen(toggleMenu);
+  }, [toggleMenu]);
 
   return (
     <header onMouseLeave={() => setToggleMenu(false)}>
@@ -46,6 +51,7 @@ function Header(props: HeaderProps) {
       {toggleMenu && (
         <Categories
           toggleMenu={toggleMenu}
+          setToggleMenu={setToggleMenu}
           setToggleCategory={props.setToggleCategory}
           onClick={props.onClick}
           data={data}

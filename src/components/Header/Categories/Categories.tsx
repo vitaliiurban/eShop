@@ -6,14 +6,18 @@ import "./_categories.scss";
 import { CategoriesModule } from "../../../models/products.model";
 interface Categories {
   toggleMenu: boolean;
+  setToggleMenu: Dispatch<SetStateAction<boolean>>;
   setToggleCategory: Dispatch<SetStateAction<string>>;
   onClick: (category: CategoriesModule) => void;
   data?: CategoriesModule[];
 }
 
-function Categories({ data, onClick, toggleMenu }: Categories) {
+function Categories({ data, onClick, toggleMenu, setToggleMenu }: Categories) {
   return (
-    <div className={`your-component ${toggleMenu ? "open" : ""}`}>
+    <div
+      className={`menu ${toggleMenu ? "visible" : ""}`}
+      onMouseLeave={() => setToggleMenu(false)}
+    >
       <div className="categories-menu">
         {data?.map((category, index) => (
           <Link
@@ -22,7 +26,7 @@ function Categories({ data, onClick, toggleMenu }: Categories) {
                 ? `/categories`
                 : `/categories/${category}`
             }
-            onClick={() => onClick(category)}
+            onClick={() => (setToggleMenu(false), onClick(category))}
             className="category-menu"
             key={index}
           >
