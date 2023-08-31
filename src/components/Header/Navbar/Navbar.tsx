@@ -11,11 +11,10 @@ interface NavbarProps {
 
 export default function Navbar(props: NavbarProps) {
   return (
-    <nav>
+    <nav onMouseEnter={() => props.setToggleMenu(true)}>
       <Link
         to={`/categories`}
         onClick={() => props.setToggleCategory("all categories")}
-        onMouseEnter={() => props.setToggleMenu(true)}
       >
         <div className="categories-title">
           <div>Categories</div>
