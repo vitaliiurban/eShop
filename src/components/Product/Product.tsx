@@ -100,16 +100,25 @@ function Product() {
 
   return (
     <div className="product-container">
-      {product && (
-        <div className="breadcrumb">
-          <div className="breadcrumb-category">
-            {product.category.charAt(0).toUpperCase() +
-              product.category.slice(1)}
+      {!isLoading ? (
+        product && (
+          <div className="breadcrumb">
+            <div className="breadcrumb-category">
+              {product.category.charAt(0).toUpperCase() +
+                product.category.slice(1)}
+            </div>
+            <div>{"/"}</div>
+            <div className="breadcrumb-title">{product.title}</div>
           </div>
+        )
+      ) : (
+        <div className="breadcrumb">
+          <div className="breadcrumb-category">{"Loading..."}</div>
           <div>{"/"}</div>
-          <div className="breadcrumb-title">{product.title}</div>
+          <div className="breadcrumb-title">{"..."}</div>
         </div>
       )}
+
       <div className="product">
         <div className="product-image">
           <div className="product-image-container-main">
