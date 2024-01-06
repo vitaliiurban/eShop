@@ -36,7 +36,6 @@ function Header(props: HeaderProps) {
           setToggleMenu={setToggleMenu}
           setToggleCategory={props.setToggleCategory}
         />
-        <input className="main-menu-search" type="text" placeholder="Search" />
 
         <Link className="wishicon" to={`/wish`}>
           <Heart toggleWish={false} className={"header"} />
